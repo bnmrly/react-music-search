@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [data, setData] = useState({ popularAlbums: [] });
+  const [data, setData] = useState({ topAlbums: [] });
   const [query, setQuery] = useState('miles davis');
   const [url, setUrl] = useState(
     `http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${query}&api_key=adf0f28675fbabee9c5c0fb4bede5e80&format=json`
@@ -18,9 +18,8 @@ function App() {
 
       try {
         const result = await axios(url);
-        const popularAlbums = result.data.topalbums.album;
-        console.log(popularAlbums);
-        setData(popularAlbums);
+        const topAlbums = result.data.topalbums.album;
+        setData(topAlbums);
       } catch (error) {
         setIsError(true);
       }
@@ -31,38 +30,58 @@ function App() {
 
   return (
     <Fragment>
-      <h1>Search for your favourite artist's top albums</h1>
-      <form
-        onSubmit={event => {
-          setUrl(
-            `http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${query}&api_key=adf0f28675fbabee9c5c0fb4bede5e80&format=json`
-          );
-          event.preventDefault();
-        }}
-      >
-        <input
-          type="text"
-          value={query}
-          onChange={event => setQuery(event.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
+      <h1 className="top-albums__app-heading">
+        Search for your favourite artist's top albums
+      </h1>
+      <div className="top-albums__search-container">
+        <form
+          className="top-albums__form"
+          onSubmit={event => {
+            setUrl(
+              `http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${query}&api_key=adf0f28675fbabee9c5c0fb4bede5e80&format=json`
+            );
+            event.preventDefault();
+          }}
+        >
+          <input
+            className="top-albums__input"
+            type="text"
+            value={query}
+            onChange={event => setQuery(event.target.value)}
+          />
+          <button className="top-albums__btn" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
 
       {isLoading ? (
-        <div>Loading ...</div>
+        <h3 className="top-albums__loading-message">Loading ...</h3>
       ) : isError ? (
-        <div>Something went wrong, please search again...</div>
+        <h3 className="top-albums__error-message">
+          Something went wrong, please search again...
+        </h3>
       ) : (
         <Fragment>
-          <div>
-            {data.length && <h1>Top albums by {data[0].artist.name}</h1>}
+          <div className="top-albums__search-results">
+            {data.length && (
+              <h2 className="top-albums__header">
+                Top albums by {data[0].artist.name}
+              </h2>
+            )}
             {data.length &&
               data.map((el, index) => {
                 return el.image.map(img => {
                   return img.size === 'large' ? (
-                    <div className="topAlbum-info" key={index}>
-                      <img src={img['#text']} alt="" />
-                      <h4 key={index}>{el.name}</h4>
+                    <div className="top-albums__card" key={index}>
+                      <img
+                        className="top-albums__cover-image"
+                        src={img['#text']}
+                        alt="top album cover"
+                      />
+                      <h4 className="top-albums__title" key={index}>
+                        {el.name}
+                      </h4>
                     </div>
                   ) : null;
                 });
