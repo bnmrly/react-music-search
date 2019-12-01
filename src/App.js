@@ -48,9 +48,9 @@ function App() {
         <button type="submit">Search</button>
       </form>
 
-      {isLoading && <div>Loading ...</div>}
-
-      {isError ? (
+      {isLoading ? (
+        <div>Loading ...</div>
+      ) : isError ? (
         <div>Something went wrong, please search again...</div>
       ) : (
         <Fragment>
