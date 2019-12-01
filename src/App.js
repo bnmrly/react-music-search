@@ -8,7 +8,7 @@ import noImage from './images/no-image-available.png';
 
 function App() {
   const [data, setData] = useState({ topAlbums: [] });
-  const [query, setQuery] = useState('miles davis');
+  const [query, setQuery] = useState('sonic youth');
   const [url, setUrl] = useState(
     `http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${query}&api_key=${apiKey}&format=json`
   );
