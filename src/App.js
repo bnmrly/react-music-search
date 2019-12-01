@@ -48,14 +48,15 @@ function App() {
         <button type="submit">Search</button>
       </form>
 
+      {isLoading && <div>Loading ...</div>}
+
       {isError ? (
         <div>Something went wrong, please search again...</div>
       ) : (
-        // refactor this check
         <Fragment>
           <div>
             {data.length && <h1>Top albums by {data[0].artist.name}</h1>}
-            {data.length > 0 &&
+            {data.length &&
               data.map((el, index) => {
                 return el.image.map(img => {
                   return img.size === 'large' ? (
@@ -69,30 +70,6 @@ function App() {
           </div>
         </Fragment>
       )}
-      {/* 
-      {isError && <div>Something went wrong ...</div>}
-
-      {isLoading ? (
-        <div>Loading ...</div>
-      ) : (
-        // refactor this check
-        <Fragment>
-          <div>
-            {data.length && <h1>Top albums by {data[0].artist.name}</h1>}
-            {data.length > 0 &&
-              data.map((el, index) => {
-                return el.image.map(img => {
-                  return img.size === 'large' ? (
-                    <div className="topAlbum-info" key={index}>
-                      <img src={img['#text']} alt="" />
-                      <h4 key={index}>{el.name}</h4>
-                    </div>
-                  ) : null;
-                });
-              })}
-          </div>
-        </Fragment>
-      )} */}
     </Fragment>
   );
 }
