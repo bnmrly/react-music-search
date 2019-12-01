@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 import { apiKey } from './config';
+import 'normalize.css';
+import './App.css';
 
 function App() {
   const [data, setData] = useState({ topAlbums: [] });
