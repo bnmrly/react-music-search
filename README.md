@@ -1,3 +1,15 @@
+This React app is built with React Hooks and enables users to search for album information from Last FM's API and displays an artist's top albums.
+
+To run this app locally you will need to obtain an api key to access Last FM's api. Please visit https://www.last.fm/api/authentication for details of how to get your key.
+
+Once you have this, please create a file called config.js in the src folder and add the following:
+
+`export const apiKey = 'yourapiKey';`
+
+Then run `npm install` to install the project's dependencies, followed by `npm start` to view the app on http://localhost:3000/ or your desired localhost url.
+
+Thank you!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
