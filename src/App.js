@@ -4,6 +4,8 @@ import { apiKey } from './config';
 import 'normalize.css';
 import './App.css';
 
+import noImage from './images/no-image-available.png';
+
 function App() {
   const [data, setData] = useState({ topAlbums: [] });
   const [query, setQuery] = useState('miles davis');
@@ -79,7 +81,7 @@ function App() {
                     <div className="top-albums__card" key={index}>
                       <img
                         className="top-albums__cover-image"
-                        src={img['#text']}
+                        src={img['#text'].length ? img['#text'] : noImage}
                         alt="top album cover"
                       />
                       <h4 className="top-albums__title" key={index}>
