@@ -66,12 +66,12 @@ function App() {
         </h3>
       ) : (
         <Fragment>
+          {data.length && (
+            <h2 className="top-albums__header">
+              Top albums by {data[0].artist.name}
+            </h2>
+          )}
           <div className="top-albums__search-results">
-            {data.length && (
-              <h2 className="top-albums__header">
-                Top albums by {data[0].artist.name}
-              </h2>
-            )}
             {data.length &&
               data.map((el, index) => {
                 return el.image.map(img => {

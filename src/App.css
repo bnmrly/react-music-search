@@ -1,3 +1,71 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,600&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #eeecec;
+}
+
+#root {
+  padding: 1.5rem 2rem;
+}
+
+.top-albums__app-heading {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.top-albums__form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.top-albums__input {
+  text-transform: capitalize;
+  background-color: #eeecec;
+  padding: 0.25rem;
+}
+
+.top-albums__btn {
+  background-color: transparent;
+  height: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(153, 234, 212);
+  border-image: initial;
+  border-radius: 50px;
+  margin-left: 1rem;
+}
+
+.top-albums__header {
+  margin-bottom: 1.5rem;
+}
+
+.top-albums__search-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid rgb(234, 153, 214);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.top-albums__card {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: auto;
+  padding: 1rem;
+  border: 2px solid rgb(153, 234, 212);
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+}
+
+.top-albums__title {
+  margin: 0;
+  padding-top: 0.75rem;
 }
