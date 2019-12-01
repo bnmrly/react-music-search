@@ -1,11 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
+import { apiKey } from './config';
 
 function App() {
   const [data, setData] = useState({ topAlbums: [] });
   const [query, setQuery] = useState('miles davis');
   const [url, setUrl] = useState(
-    `http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${query}&api_key=adf0f28675fbabee9c5c0fb4bede5e80&format=json`
+    `http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${query}&api_key=${apiKey}&format=json`
   );
 
   const [isLoading, setIsLoading] = useState(false);
