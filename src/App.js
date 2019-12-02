@@ -10,7 +10,7 @@ function App() {
   const [data, setData] = useState({ topAlbums: [] });
   const [query, setQuery] = useState('sonic youth');
   const [url, setUrl] = useState(
-    `http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${query}&api_key=${apiKey}&format=json`
+    `https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${query}&api_key=${apiKey}&format=json`
   );
 
   const [isLoading, setIsLoading] = useState(false);
@@ -43,7 +43,7 @@ function App() {
           className="top-albums__form"
           onSubmit={event => {
             setUrl(
-              `http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${query}&api_key=adf0f28675fbabee9c5c0fb4bede5e80&format=json`
+              `https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${query}&api_key=adf0f28675fbabee9c5c0fb4bede5e80&format=json`
             );
             event.preventDefault();
           }}
