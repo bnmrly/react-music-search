@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <h1
+    className="top-albums__app-heading"
+  >
+    Search for your favourite artist's top albums
+  </h1>,
+  <div
+    className="top-albums__search-container"
+  >
+    <form
+      className="top-albums__form"
+      onSubmit={[Function]}
+    >
+      <input
+        className="top-albums__input"
+        onChange={[Function]}
+        type="text"
+        value="sonic youth"
+      />
+      <button
+        className="top-albums__btn"
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
+  </div>,
+  <div
+    className="top-albums__search-results"
+  />,
+]
+`;
