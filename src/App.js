@@ -22,10 +22,11 @@ function App() {
       setIsLoading(true);
 
       try {
-        const result = await axios(url);
-        const topAlbums = result.data.topalbums.album;
+        const response = await axios.get(url);
+        const topAlbums = response.data.topalbums.album;
         setData(topAlbums);
       } catch (error) {
+        console.log('ERROR', error);
         setIsError(true);
       }
       setIsLoading(false);
