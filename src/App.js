@@ -24,7 +24,6 @@ function App() {
       try {
         const response = await axios.get(url);
         const topAlbums = response.data.topalbums.album;
-        console.log('response.data: ', response.data);
         setData(topAlbums);
       } catch (error) {
         console.log('ERROR', error);
